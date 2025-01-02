@@ -1,6 +1,15 @@
-// STRINGS
+/* INTRODUCTION TO JAVASCRIPT*/
 
-// STRING CONCATENATION - JOINING 2 OR MORE STRINGS
+/* VARIABLES, CONSTANTS & COMMENTS*/ 
+
+/* DATA TYPES AT A GLANCE*/
+
+/* 
+STRINGS - Anything element in single or double quoation marks eg numbers,letters
+
+STRING CONCATENATION - JOINING 2 OR MORE STRINGS 
+ 
+*/
 
 let firstName = "Zahra",
   lastName = " Wangari",
@@ -21,7 +30,7 @@ console.log(fullName.length);
 
 Methods - a fn associated with a specific data type
 methods are invoked using dot notation
-METHODS CAN BE DEFINED IN AN OBJECT */
+METHODS CAN BE DEFINED IN AN OBJECT functions cannot*/
 
 /*FUNCTIONS - A block of code that perform a specific fn
              - invoked directly 
@@ -62,7 +71,82 @@ let result3 = myEmail.replace("gmail", "hotmail");
 
 console.log(result3);
 
-/*NUMBERS */
+/*NUMBERS 
+include whole numbers and decimals
+
+WHAT CAN WE DO WITH NUMBERS
+
+1: Math operations - +,-,*,/,**,% etc
+
+        EXAMPLES
+*/
+let pi = 3.14,
+  radius = 10;
+
+let remainder = radius % 3; // % modulus (remainder of)
+console.log(remainder);
+
+let circleArea = pi * radius ** 2; // Formula for getting area of a circle
+
+console.log(circleArea);
+
+//Order of operation - B O D M A S
+
+// Lets say you wanted to add 1 to the total number of eg likes
+
+let totalLikes = 10;
+
+// You could do it this way;
+
+/* totalLikes = totalLikes + 1; 
+But theres a shorter way of doing this
+*/
+
+totalLikes++;
+
+//this also aplies to subtraction
+
+console.log(totalLikes);
+
+//What if we wanted to add eg 10
+
+totalLikes += 10;
+
+console.log(totalLikes);
+
+/* The same applies to subtraction,multiplication etc
+totalLikes *= 10
+totalLikes -=30
+totalLikes += 4
+totalLikes /= 2 
+*/
+
+/*NaN - Not a number 
+we get this value when we try to make a calculation that doesnt result in a number
+
+             EXAMPLE
+*/
+console.log(5 / "karma");
+
+/*CONCATENATION OF NUMBERS - Joining numbers and strings
+
+This is the old way
+
+example
+*/
+let herAge = 10,
+  herResult = "This car is owned by a " + herAge + " year old girl";
+
+console.log(herResult);
+
+/*TEMPLATE STRINGS || TEMPLATE LITERALS
+  
+  - Allows us to inject variables without needing to use the + sign
+  - We use backticks instead of quoatation marks
+  - We use ${variable} inside the backticks to insert the value of the variable
+  
+           EXAMPLE
+  */
 
 const title = "Best read of 2019",
   author = "Zahra",
@@ -71,6 +155,12 @@ const title = "Best read of 2019",
 let result = `The blog called ${title} by ${author} has ${likes} likes`;
 console.log(result);
 
+/* 
+           TEMPLATE STRINGS USE CASE
+- Creating HTML TEMPLATES
+
+   EXAMPLE
+ */
 let html = `
 <h2>${title}</h2>
 <p>${author}</p>
@@ -79,14 +169,183 @@ let html = `
 
 console.log(html);
 
-// let names = ["zahra", "kevin", "valentine"],
-//   year = [2023, 1995, 1996];
+// WE will later learn how to output a template to the browser(Covered in the DOM SECTION)
 
-// let results = names.concat(year);
+/* ARRAYS []
+          
+- They fall under object data type     
 
-// console.log(results);
+- we can store various data types and they can even be mixec(like races) but its not recommended
 
-// // FOR LOOP
+- We use arrays to store a collection of things eg number,strings etc
+
+- Getting position in an array - we use [] notation
+
+example
+
+let numbers = [1, 2, 3, 4, 5];
+
+console.log(numbers[0]); // gets 1st element in array
+
+- Overriding value of an element in an array
+
+numbers[0] = 28;
+*/
+
+//       ARRRAY PROPERTIES & METHODS
+
+let ninjas = ["zahra", "kevin", "valentine"],
+  year = [2023, 1995, 1996];
+// array length - gets total elements in an array
+
+console.log(ninjas.length); // 3
+
+// CONCAT METHOD - Joins 2 arrays together to be 1
+
+let results = ninjas.concat(year);
+
+console.log(results);
+
+let result5 = ninjas.concat(["Sarah", "kasongo", "murima"]);
+console.log(result5);
+
+// JOIN METHOD - joins elements with the specified symbol
+
+let jointResult = ninjas.join(",");
+
+console.log(jointResult);
+
+// INDEXOF - gets index of an element in an array
+
+let index = ninjas.indexOf("kevin");
+console.log(index);
+
+// PUSH METHOD (destructive method)
+//  - pushes a new element into the array
+//   - Returns new length of the array
+//  - Alters the original values of an array
+
+let newArrayLength = ninjas.push("sweeney");
+console.log(newArrayLength);
+console.log(ninjas);
+console.log(typeof ninjas);
+
+// POP METHOD (destructive method)
+//  - removes last value in array
+// - returns the the value it popped
+
+let popMethod = ninjas.pop();
+console.log(popMethod);
+
+/* Null & Undefined 
+ Null - intentionally assigning a variable with a value of null
+ eg let age = null
+ - use case = when we want to clear field in a form
+
+ Undefined - creating a variable without assigning a value
+ eg let year;
+
+*/
+
+/*          BOOLEANS 
+   - Represent 2 special values in JS ; true & false
+   - They are never in strings
+- we use them to evaluate conditions & also check whether certain things are true or false
+
+          Examples
+
+methods can return booleans
+          */
+let herEmail = "zahrawangari45@gmail.com";
+
+let confirmation = herEmail.includes("@"); //returns either true or false
+
+console.log(confirmation);
+
+//       Example 2
+
+let family = ["zahra", "jane", "kevin"];
+let check = family.includes("jane");
+console.log(check);
+
+/* COMPARISON OPERATORS 
+For comparing 2 things
+ 
+Example
+*/
+let hisAge = 29;
+console.log(hisAge == 24);
+console.log(hisAge == 29);
+console.log(hisAge != 24);
+console.log(hisAge > 24);
+console.log(hisAge >= 24);
+console.log(hisAge <= 24);
+
+/* FOR STRINGS
+
+-Lower case letters are greater than any Uppercase letters
+-also the starting letter of a strings determines if its greather than the other
+- later letters in alphabet are greater than earlier letters
+ 
+example
+
+*/
+let nickname = "John";
+console.log(nickname > "Chloe");
+console.log(nickname < "john");
+
+/*LOOSE(==) VS STRICT(===) COMPARISON OPERATORS
+
+loose - different types can still be equal
+let age = 25;
+
+// loose comparison
+console.log(age == 25);
+console.log(age == '25');  
+both return true
+
+ALWAYS USE STRICT EQUALITY OPERATORS
+console.log(age === 25); true
+console.log(age === '25'); false - a number can't be equal to a string
+console.log(age !== 22); true
+*/
+
+/*  TYPE CONVERSION
+
+CONVERTING STRINGED NUMBERS TO NUMBERS
+
+- Turning one data type into another
+- lets say we wanted to add a score to a number stored as a string
+
+*/
+let score = "100";
+console.log(score + 1); // we get a concatenation value of 1001
+// HOW TO BYPASS THIS AND CONVERT SCORE TO NUMBER
+
+score = Number(score); // turns string to number
+console.log(score + 1);
+console.log(typeof score); //what data type is stored in the variable
+
+/* BOOLEAN CONVERSION
+
+-Positive & negative numbers are considered truthy values
+
+- Zero & Empty strings are falsey values
+
+- Strings of any lenth are truthy values
+*/
+let totals = Boolean(200);
+console.log(totals);
+
+let empty = Boolean("");
+let string = Boolean("kevinndiritu@gmail.com");
+let zero = Boolean(0);
+console.log(zero, empty, string);
+
+
+                    /* CONTROL FLOW */
+
+                       // // FOR LOOP
 // for (i = 0; i < 5; i++) {
 //   console.log("in loop:", i);
 // }
