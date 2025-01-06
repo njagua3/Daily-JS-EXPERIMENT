@@ -413,6 +413,8 @@ for (let i = 0; i < studs.length; i++) {
 
 /* 
 Declaring i with let inside each for loop ensures that each loop works independently without conflicts.
+In short since i have 2 for loops I must use let or const keyword to initialize block scope
+If i do not, that is the same as trying to redeclare the variable i 
 
 CYCLING THROUGH DATA/ LOOPING THROUGH/ ITERATING THROUGH DATA
 These terminologies mean the same thing
@@ -506,10 +508,10 @@ if (password.length >= 12 && password.includes("@")) {
   console.log("The password is not strong enough");
 }
 
-/* The above condition is read this way:
-if password.length = or > than 12 and password includes @ run the code block
+/* The above conditions are read this way:
+if password.length is >= 12 and the password includes @ sign run the code block
 if its not true; then we check the else if condition
-if its also not true; the else statement run
+if its also not true; the else statement will run
 1 of the 3 must always be true.
 Only one will run no matter how many statements we have
 
@@ -517,23 +519,71 @@ Only one will run no matter how many statements we have
 LOGICAL NOT(!) OPERATOR
 
 The NOT operator inverts the value of a boolean expression
+sometimes we want to execute a code block if the condition is false
 
+Example:
+Lets say we have a user defined
 
+let isLoggedIn = true;
+
+When we place an exclamation mark infront of a boolean, the ! reverses the boolean
+If we place it infront of a true value it evaluates to false
+If we put it infront of a false value it evaluates to true  */
+let isLoggedIn = false;
+
+if (!isLoggedIn) {
+  // we just switch value of isLoggedIn TO TRUE inside these brackets
+  console.log("You must be logged in");
+}
+
+/*
+JAVASCRIPT KEYWORDS
 
 BREAK AND CONTINUE */
 
 const scores = [50, 12, 24, 0, 39, 100, 20, 10];
 
 for (let i = 0; i < scores.length; i++) {
+  //Let's say when we get to a score of 100 which is the max score
+  // we want to stop the loop/break out and print a message to the console
+  // and break out of the loop.
+
+  if (scores[i] === 0) {
+    console.log("Game Over, Try Again");
+    continue;
+  }
   console.log("Your score is:", scores[i]);
 
   if (scores[i] === 100) {
     console.log("Congrats! you got the top score");
     break;
   }
+
+  // Continue statement
+  // If we want to skip the current iteration and move to the next one
+  // we can use the continue statement
 }
 
-//SWITCH STATEMENTS
+/*SWITCH STATEMENTS - A better solution to if, else if statement 
+
+Useful when we are checking multiple values of a single variable
+Example we have a variable called grade
+
+Switch statement is better and more readable than multiple if else if statements
+
+Our grades variable can have different values eg A,B,C,D OR E
+
+We want to check the different cases it could be
+
+We do that by use the: 
+
+case Keyword
+
+break keyword - helps to breakout of switch statement 
+
+default keyword - it is used when none of the case statements match
+
+*/
 const grade = "D";
 
 switch (grade) {
@@ -556,18 +606,30 @@ switch (grade) {
     console.log("not a valid grade");
 }
 
-//BLOCK SCOPE vs GLOBAL SCOPE
+// NB: Switch statements use strict equality to check(50 is not equal to '50')
+//strict equality takes into consideration the typeof and the actual value
 
-let age = 30;
-let name = "zahra";
+/*BLOCK SCOPE vs GLOBAL SCOPE
+
+scope means area in which a variable value is relevant
+
+global scope - variable that can be accesed anywhere in the file if needed
+
+NB: You cannot redeclare/redefine a variable again in global scope
+BUT you can redeclare a global scope variable in block scope
+
+local/block scope - variable that can be accesed only in the block where it is defined
+*/
+let age = 1.5;
+let _name = "zahra";
 
 if (true) {
   let age = 29;
-  let name = "Kevin";
-  console.log("Inside block scope:", name, age);
+  let _name = "Kevin";
+  console.log("Inside block scope:", _name, age);
 }
 
-console.log("Outside block scope:", age, name);
+console.log("Outside block scope:", age, _name);
 
 // FUNCTIONS
 // function declaration
