@@ -1,6 +1,6 @@
 /* INTRODUCTION TO JAVASCRIPT*/
 
-/* VARIABLES, CONSTANTS & COMMENTS*/ 
+/* VARIABLES, CONSTANTS & COMMENTS*/
 
 /* DATA TYPES AT A GLANCE*/
 
@@ -342,65 +342,196 @@ let string = Boolean("kevinndiritu@gmail.com");
 let zero = Boolean(0);
 console.log(zero, empty, string);
 
+/* CONTROL FLOW 
+ 
+As we write more complex code we need to somehow control the flow
+ie decide what we want to do next or execute a piece of code over
+& over. For example we have an array of data that we want to cycle 
+through/Loop through and perform some code inside the elements
 
-                    /* CONTROL FLOW */
+For this we use a LOOP. A Loop is a type of control flowing in JS
 
-                       // // FOR LOOP
-// for (i = 0; i < 5; i++) {
-//   console.log("in loop:", i);
-// }
+We also use Conditional Statements
 
-// console.log("loop finished");
+Loops & Conditional Statements are called control flows because we use
+them to control the flow of our code 
+                    
+              Types of Loops
+   
+  Rememeber the job of a loop is to loop through a portion of code
+  over & over again  
+  
+  All loops do the same thing. I prefer using a for loop
+*/
 
-// const studs = ["shaun", " mario", "luigi"];
+/*FOR LOOP 
 
-// for (i = 0; i < studs.length; i++) {
-//   console.log(studs[i]);
-//   let html = `<div>${studs[i]}</div>`;
-//   console.log(html);
-// }
+            How to create a for loop 
 
-const names = ["shaun", " mario", "luigi"];
+for (i = 0; i < 5; i++) {
+  console.log("in loop:", i);
+}
+
+console.log("loop finished");
+
+let i = 0 - This is the initialization variable.
+           - Acts like a counter and keeps track of how many times
+           we cycle through the loop
+
+i < 5 - Condition statement = evaluates to either true or false
+       - if its true code is executed
+
+i++ = Final expression - executes everytime at the end of code block
+The use of a final expression is to change the value of a initialization variable
+
+NB: A lot of the times we wont know how many times we want to loop
+through something
+- Typically what we do is loop through data of some kind
+
+            Example:
+*/
+const studs = ["shaun", "mario", "luigi"];
+
+for (let i = 0; i < studs.length; i++) {
+  console.log("student", studs[i]);
+}
+
+/*NB - When using the .length method since we do not know number of elements
+in an array when we return jus eg i we get the length of array
+
+If we want to output the items in array we have to do this - studs[i]
+
+What if instead of just logging the names we wanted to create a HTML Template
+so that we can output it to the console.
+
+        lets use the same array above 
+*/
+for (let i = 0; i < studs.length; i++) {
+  let html = `<div>${studs[i]}</div>`;
+  console.log(html);
+}
+
+/* 
+Declaring i with let inside each for loop ensures that each loop works independently without conflicts.
+
+CYCLING THROUGH DATA/ LOOPING THROUGH/ ITERATING THROUGH DATA
+These terminologies mean the same thing
+Each iteration is one cycle
+
+/*WHILE LOOP
+
+A while loop is a type of control flowing in JS
+
+It only has the conditional statement in parenthesis
+
+Initialization variable must be declared before the loop begins
+
+Final expression must be in code to avoid an infinite loop.
+The use of a final expression is to change the value of a initialization variable
+Put it at the end of the code block
+*/
+const names = ["shaun", " mario", "luigi", "Zahra"];
 let i = 0;
 
-// while (i < names.length) {
-//   console.log(names[i]);
-//   i++;
-// }
+while (i < names.length) {
+  console.log("My name is,", names[i]);
+  i++;
+}
 
-// //IF STATEMENTS
-// const age = 24;
+/* IF STATEMENTS / CONDITIONAL STATEMENTS
 
-// if (age > 18) {
-//   console.log("You are a senor");
-// }
-// const ninjas = ["shaun", "ryu", "chunli", "kevin"];
+- Called if statements coz if a certain condition is true we do sth
+-
 
-// if (ninjas.length > 3) {
-//   console.log("That's a lot of ninjas");
-// }
+   EXAMPLE 1
+*/
+const theAge = 24;
 
-// const password = "p@sd1234";
+if (theAge > 18) {
+  console.log("You are a senor");
+}
 
-// if (password.length >= 12 && password.includes("@")) {
-//   console.log("The password is mighty strong");
-// } else if (password.length >= 8 || password.includes("@")) {
-//   console.log("The password is long enough");
-// } else {
-//   console.log("The password is not long enough");
-// }
+/* EXAMPLE 2*/
 
-// //BREAK AND CONTINUE
-// const scores = [50, 12, 24, 0, 39, 100, 20, 10];
+const ninjars = ["shaun", "ryu", "chunli", "kevin"];
 
-// for (let i = 0; i < scores.length; i++) {
-//   console.log("Your score is:", scores[i]);
+if (ninjars.length > 3) {
+  console.log("That's a lot of ninjas");
+}
+/* EXAMPLE 3*/
+let herPassword = "Njagua323565!";
 
-//   if (scores[i] === 100) {
-//     console.log("Congrats! you got the top score");
-//     break;
-//   }
-// }
+if (herPassword.length > 7) {
+  console.log("The password is strong");
+}
+
+/* ELSE STATEMENTS
+
+It would be good to run a different code block if first condition is false
+This helps to offer feedback to a user
+To do that we use an else statement */
+
+if (herPassword.length > 7) {
+  console.log("The password is strong");
+} else {
+  console.log("the password is not long enough");
+}
+
+/*EXAMPLE 4
+
+Use case for an if, else if statement
+example - checking strength of a password
+
+Checking Multiple Conditions using the else if, else statement &
+
+   LOGICAL OPERATORS
+
+We can check multiple conditions at once using logical operators
+
+The 2 main types are; OR operator(||) and AND operator(&&)
+
+If you use && Both conditions have to be true for code block to run
+
+If you use || operator one condition has to be true for code to run
+
+*/
+
+let password = "p@sd1234";
+
+if (password.length >= 12 && password.includes("@")) {
+  console.log("The password is mighty strong");
+} else if (password.length >= 8 || password.includes("@")) {
+  console.log("The password is strong enough");
+} else {
+  console.log("The password is not strong enough");
+}
+
+/* The above condition is read this way:
+if password.length = or > than 12 and password includes @ run the code block
+if its not true; then we check the else if condition
+if its also not true; the else statement run
+1 of the 3 must always be true.
+Only one will run no matter how many statements we have
+
+
+LOGICAL NOT(!) OPERATOR
+
+The NOT operator inverts the value of a boolean expression
+
+
+
+BREAK AND CONTINUE */
+
+const scores = [50, 12, 24, 0, 39, 100, 20, 10];
+
+for (let i = 0; i < scores.length; i++) {
+  console.log("Your score is:", scores[i]);
+
+  if (scores[i] === 100) {
+    console.log("Congrats! you got the top score");
+    break;
+  }
+}
 
 //SWITCH STATEMENTS
 const grade = "D";
