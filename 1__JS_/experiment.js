@@ -631,46 +631,116 @@ if (true) {
 
 console.log("Outside block scope:", age, _name);
 
-// FUNCTIONS
-// function declaration
+/*         FUNCTIONS
+        
+functions allow us to define a code block we can call and execute whenever
+Think of a fn as a box with some code inside it that does a sth particular
+
+This is how we call a function - function scores will be called this way
+scores()
+
+we can call a function as many times as we want
+
+ Functions help us to write bits of code which are reusable       
+        
+ DIFFERENT WAYS OF CREATING A FUNCTION
+
+ A: Function Declaration
+
+ keyword is function & then give the fn a name same way we do with variables
+
+ */
 function greet() {
-  console.log("Hello there!");
+  return "Hello there!";
 }
-greet();
-greet();
+console.log(greet()); // Calling/Invoking a Function
+greet(); // we must call a function
 
-// function expression
+/* Function Expression
 
-// const speak = function () {
-//   return "Good morning!";
-// };
-// console.log(speak());
+This is creating a function by storing it in a variable
+This time the function has no name since now name is the variable name
 
-// ARGUMENTS AND PARAMETERS
-// const speak = function (name = "kev", time = "night") {
-//   console.log(`Good ${time} ${name}`);
-// };
-// speak("Zahra", "morning");
-// speak();
+NB: Anytime you create a variable and set it equal to sth eg a function , string
+number etc that is known as an EXPRESSION
+At the end of an expression we usually put a semi colon 
 
-// const calcArea = function (radius) {
-//   return 3.14 * radius ** 2;
-// };
 
-// const area = calcArea(10);
-// console.log(area);
 
-// const calcVolume = function (area) {
-//   return area * 4;
-// };
-// console.log(calcVolume(area));
+*/
+const speaks = function () {
+  return "Good morning!";
+};
+console.log(speaks());
 
-// ARROW FUNCTIONS
+/* HOISTING IN JAVASCRIPT
+This is calling/invoking a function before the function
 
-// const calcArea = (radius) => 3.14 * radius ** 2;
+This works with function declaration
 
-// const area = calcArea(10);
-// console.log(area);
+BUT not with Function expressions
+
+WHEN DECLARING FUNCTION I 99% PREFER MOST OF THE TIMESTO USE FN EXPRESSIONS
+
+
+ARGUMENTS AND PARAMETERS
+
+parameters passed with values as shown below are default values
+for just incase you forget to pass an argument to a fn while calling it
+
+Parameters have local scope and are only accesible within the function
+
+The order of arguments passed to a fn must match order of parameters
+*/
+const speak = function (name = "kev", time = "night") {
+  return `Good ${time} ${name}`;
+};
+console.log(speak("Zahra", "morning"));
+console.log(speak());//default values are used
+
+/* Returning Values
+When a function returns a value what we need to do is store the 
+value in a variable so that we can use it later
+
+This provides global scope and now we can use the return value anywhere
+
+const calcArea = function (radius) {
+  let area = 3.14 * radius ** 2; // local scope
+  return area;
+};
+const area = calcArea(10); // global scope. we are storing the return value here
+console.log(area);
+
+We are simply;
+calling a function 
+it returns the area
+
+CODE CLEAN UP
+No need of local variable return the area
+store area in a global variable - can be accesed anytime
+
+*/
+const calcArea = function (radius) {
+  return 3.14 * radius ** 2;
+};
+
+const theArea = calcArea(10);
+console.log(theArea);
+
+const calcVolume = function (theArea) {
+  return theArea * 4;
+};
+console.log(calcVolume(theArea));
+
+/* ARROW FUNCTIONS 
+Modern Way of writing functions
+
+*/
+
+const calcAreas = (radius) => 3.14 * radius ** 2;
+
+const areas = calcAreas(10);
+console.log(areas);
 
 // const greets = () => "hello world!",
 //   results = greets();
