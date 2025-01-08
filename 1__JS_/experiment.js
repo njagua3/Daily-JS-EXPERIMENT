@@ -583,6 +583,8 @@ break keyword - helps to breakout of switch statement
 
 default keyword - it is used when none of the case statements match
 
+switch = variable name
+case = different values a variable could be
 */
 const grade = "D";
 
@@ -696,7 +698,7 @@ const speak = function (name = "kev", time = "night") {
   return `Good ${time} ${name}`;
 };
 console.log(speak("Zahra", "morning"));
-console.log(speak());//default values are used
+console.log(speak()); //default values are used
 
 /* Returning Values
 When a function returns a value what we need to do is store the 
@@ -734,6 +736,18 @@ console.log(calcVolume(theArea));
 
 /* ARROW FUNCTIONS 
 Modern Way of writing functions
+I'll use the functions above but i will switch the names a bit
+
+We do not ue the function keyword
+
+It is a shorter way to create a regular function
+
+const area = (parameters) => {code block};
+
+If we have a single return line we can take away the return keyword
+& remove the curly braces as shown below
+
+NB: THERE ARE TIMES THE ARROW FUNCTION CANNOT BE USED(EG FOREACH METHOD)
 
 */
 
@@ -742,30 +756,46 @@ const calcAreas = (radius) => 3.14 * radius ** 2;
 const areas = calcAreas(10);
 console.log(areas);
 
-// const greets = () => "hello world!",
-//   results = greets();
+/* PRACTICE ARROW FUNCTIONS*/
 
-// console.log(results);
+const greetV = () => "hello ms. valentine";
+const greetResults = greetV();
+console.log(greetResults);
 
-// const bill = (products, tax) => {
-//   let total = 0;
-//   for (i = 0; i < products.length; i++) {
-//     total += products[i] + products[i] * tax;
-//   }
-//   return total;
-// };
-// console.log(bill([10, 15, 30], 0.2));
+const bill = (products, tax) => {
+  let total = 0;
+  for (let i = 0; i < products.length; i++) {
+    total += products[i] + products[i] * tax;
+  }
+  return total;
+};
+totalTax = bill([10, 15, 30], 0.2);
+console.log(totalTax);
 
-// const prayers = function (name, time) {
-//   console.log(`Dear ${name},End of year prayers begin at ${time}`);
-// };
-// prayers("Kevin", "6 oclock");
+/* FUNCTIONS vs METHODS
 
-// const students = ["Kevin", "Zahra", "Valentine", "Jane"];
+Both functions and methods are used to perform a specific task
 
-// students.forEach(function (student) {
-//   console.log(student);
-// });
+A FUNCTION IS A BLOCK OF CODE THAT CAN BE INVOKED
+Functions are invoked directly
+Functions are used when we want to reuse the code
+Functions are defined on their own while
+Methods are defined in an object or data type
+
+const name = () => "Hi Kevin"; // fn defined on its own
+let result = name(); 
+
+A METHOD IS STILL A FUNCTION
+Methods - Functions used in a specific data type EG STRING,OBJECT ETC
+invoked using dot notation(.length(), .toUpperCase(), .includes())
+Methods can be defined inside an object, regular fns cannot
+
+let name = "kevin";
+name.toUpperCase(); //METHOD INVOKED & method defined on a string
+
+The difference between methods and functions is how they are INVOKED
+
+*/
 // //ARROW FUNCTION
 // students.forEach((student) => {
 //   console.log(`My name is ${student}`);
