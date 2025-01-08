@@ -855,7 +855,10 @@ ul.innerHTML = myHtml;
 
 
 
-/* OBJECT LITERAL NOTATION
+/* 
+OBJECTS AT A GLANCE
+
+OBJECT LITERAL NOTATION
 
 let user = {
   name: "kevin",
