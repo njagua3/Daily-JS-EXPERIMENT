@@ -796,95 +796,124 @@ name.toUpperCase(); //METHOD INVOKED & method defined on a string
 The difference between methods and functions is how they are INVOKED
 
 */
-// //ARROW FUNCTION
-// students.forEach((student) => {
-//   console.log(`My name is ${student}`);
-// });
+/* Foreach Method & Callbacks
 
-//OPTION 2 OF WRITING CALLBACK FNS
-//IF THE FUNCTION IS BIG
+Callbacks - This is when we pass a function as an argument
+           - The passed function is called a callback function
 
-// let people = ["John", "James", "Bob", "Luka"];
+Using a method in combo with a function
 
-// const logPerson = (person, index) => {
-//   console.log(`${index} - Hi ${person}`);
-// };
+FOREACH METHOD - It is a method that iterates over an array
+     - It is abit like a loop but it is more elegant
+     - The method expects a callback function as an argument
+NB: A callback fn can take a 2nd parameter for the index
+     */
+let myPeeps = ["Zahra", "Valentine", "Jane", "Makena", "John"];
 
-// people.forEach(logPerson);
+myPeeps.forEach((person, index) => {
+  console.log(`${index} - My name is ${person}`);
+});
 
-//Callback functions in action
-// I have added a ul in the body with a class named people
 
-// const ul = document.querySelector(".people");
+/* OPTION 2 OF WRITING CALLBACK FNS
+           
+          IF THE FUNCTION IS BIG */
 
-// const people = ["John", "James", "Bob", "Luka", "chunli"];
-// let html = ``;
-// people.forEach((person) => {
-//   //create html template
-//   html += `<li style="color: red">${person}</li>`;
-// });
-// console.log(html);
-// ul.innerHTML = html;
+let men = ["John", "James", "Bob", "Luka"];
 
-// //OBJECT LITERAL NOTATION
+const logPerson = (person, index) => {
+  console.log(`${index} - Hi ${person}`);
+};
 
-// let user = {
-//   name: "kevin",
-//   age: 29,
-//   email: "kevinndiritu@gmail.com",
-//   location: "Nairobi",
-//   blogs: ["Why mac & cheese rules", "10 things to mkae with marmite"],
-//   login: function(){
-//     console.log("user logged in")
-//   }
-// };
-// console.log(user);
+men.forEach(logPerson);
 
-// // ACCESING PROPERTIES FROM OBJECT
-// // WE USE DOT NOTATION
-// console.log(user.name);
-// // OVERWRITING/Update VALUES IN AN OBJECT
-// user.age = 35;
-// console.log(user.age);
+/* Callback functions in action
 
-// //ACCESSING AND UPDATING USING SQUARE BRACKET NOTATION
-// console.log(user["name"]);
-// console.log(user["email"]);
+Adding an array of names into a html template
+& outputing it on the browser
 
-// //updating
+I have added a ul in the body with a class named people 
 
-// user["name"] = "Zahra";
-// console.log(user["name"]);
+You have to create an empty variable outside of the callback fn
+for storage purpose
+It can be accessed by the callback fn since it's a global variable
 
-// console.log(typeof user);
 
-//ADDING METHODS
+*/
 
-// let user = {
-//   name: "kevin",
-//   age: 29,
-//   email: "kevinndiritu@gmail.com",
-//   location: "Nairobi",
-//   blogs: ["Why mac & cheese rules", "10 things to mkae with marmite"],
-//   login: function () {
-//     console.log("user logged in");
-//   },
-//   logout: function () {
-//     console.log("user logged out");
-//   },
-//   logBlogs: function () {
-//     console.log("This user has written the following blogs:");
-//     this.blogs.forEach((blog) => {
-//       console.log(blog);
-//     });
-//   },
-// };
+const ul = document.querySelector(".people");
 
-// user.login();
-// user.logout();
-// user.logBlogs();
+const people = ["John", "James", "Bob", "Luka", "chunli"];
+let myHtml = ``;
+people.forEach((person) => {
+  //create html template
+  myHtml += `<li style="color: red">${person}</li>`;
+  // the += is for adding each iteration to the empty variable
+});
+console.log(myHtml);
+ul.innerHTML = myHtml;
 
-//OR
+
+
+/* OBJECT LITERAL NOTATION
+
+let user = {
+  name: "kevin",
+  age: 29,
+  email: "kevinndiritu@gmail.com",
+  location: "Nairobi",
+  blogs: ["Why mac & cheese rules", "10 things to mkae with marmite"],
+  login: function(){
+    console.log("user logged in")
+  }
+};
+console.log(user);
+
+// ACCESING PROPERTIES FROM OBJECT
+// WE USE DOT NOTATION
+console.log(user.name);
+// OVERWRITING/Update VALUES IN AN OBJECT
+user.age = 35;
+console.log(user.age);
+
+//ACCESSING AND UPDATING USING SQUARE BRACKET NOTATION
+console.log(user["name"]);
+console.log(user["email"]);
+
+//updating
+
+user["name"] = "Zahra";
+console.log(user["name"]);
+
+console.log(typeof user);
+
+ADDING METHODS
+
+let user = {
+  name: "kevin",
+  age: 29,
+  email: "kevinndiritu@gmail.com",
+  location: "Nairobi",
+  blogs: ["Why mac & cheese rules", "10 things to mkae with marmite"],
+  login: function () {
+    console.log("user logged in");
+  },
+  logout: function () {
+    console.log("user logged out");
+  },
+  logBlogs: function () {
+    console.log("This user has written the following blogs:");
+    this.blogs.forEach((blog) => {
+      console.log(blog);
+    });
+  },
+};
+
+user.login();
+user.logout();
+user.logBlogs();
+
+OR */
 
 let user = {
   name: "kevin",
