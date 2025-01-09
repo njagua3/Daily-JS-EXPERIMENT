@@ -814,7 +814,6 @@ myPeeps.forEach((person, index) => {
   console.log(`${index} - My name is ${person}`);
 });
 
-
 /* OPTION 2 OF WRITING CALLBACK FNS
            
           IF THE FUNCTION IS BIG */
@@ -853,15 +852,49 @@ people.forEach((person) => {
 console.log(myHtml);
 ul.innerHTML = myHtml;
 
-
-
 /* 
 OBJECTS AT A GLANCE
 
+The best way to understand objects in js is to compare them with real life objects
+
+Objects in real life have properties and things they can do
+
+Eg a phone is an object and it has properties eg colour,size, model etc and it can make calls, take pictures etc
+
+An object in js is no different. It has properties( Key, value pairs)
+
+eg a user object can have properties eg email,username and gender etc
+ A js object can also has methods eg- login method , logout method etc
+
+Remember methods are function within a specific data type
+
+Another example is a blog object
+
+it can have these properties and more; title, content ,author
+
+it can have these methods for example; publish,unpublish,delete etc
+
+Javascript allows us to create objects
+
+We can do this in a variety of different ways
+
+Javascript also has some built in object eh Math object
+
+
+WE CAN CREATE INDIVIDUAL OBJECT USING WHAT IS KNOWN AS 
+
 OBJECT LITERAL NOTATION
 
+HOW TO CREATE AN OBJECT USING OBJECT LITERAL NOTATION
+
+We use curly braces {} just like we use square bracket to create an array
+
+Each property in an object has a key value pair
+
+Key value pairs are comma separated
+
 let user = {
-  name: "kevin",
+  name: "kevin", // key value pair
   age: 29,
   email: "kevinndiritu@gmail.com",
   location: "Nairobi",
@@ -872,25 +905,58 @@ let user = {
 };
 console.log(user);
 
-// ACCESING PROPERTIES FROM OBJECT
-// WE USE DOT NOTATION
+ACCESsING PROPERTIES FROM AN OBJECT
+
+- WE USE DOT NOTATION
+
 console.log(user.name);
-// OVERWRITING/Update VALUES IN AN OBJECT
+
+OVERWRITING/Update VALUES IN AN OBJECT
+
 user.age = 35;
 console.log(user.age);
 
-//ACCESSING AND UPDATING USING SQUARE BRACKET NOTATION
+ACCESSING AND UPDATING USING SQUARE BRACKET NOTATION
+
+The key has to be in quotes
+
 console.log(user["name"]);
 console.log(user["email"]);
 
-//updating
+UPDATING USING SQUARE BRACKET NOTATION
+
+Both key and new value have to be in quotes
 
 user["name"] = "Zahra";
 console.log(user["name"]);
 
-console.log(typeof user);
+console.log(typeof user); // CHECKING THE DATA TYPE
+
+NB: I PREFER DOT NOTATION
 
 ADDING METHODS
+
+We still use a key value pair
+
+Remember a regular fn cannot defined inside an object but a method is
+
+Inside our object we have defined some methods that look like regular fn but theyre not regular fns
+
+THIS KEYWORD
+
+Inside our function we have an array of blogs
+
+We want to cycle through the blogs and log them to the browser
+
+Inside our logblogs function we need to be able to access the blogs
+since we cannot just loop with a foreach method(blogs.forEach())
+
+We use the this keyword which refers to this user object
+
+This keyword is a context object and it reps the context in which
+current code is executed 
+
+
 
 let user = {
   name: "kevin",
@@ -906,15 +972,26 @@ let user = {
   },
   logBlogs: function () {
     console.log("This user has written the following blogs:");
-    this.blogs.forEach((blog) => {
+    this.blogs.forEach((blog)=>{
       console.log(blog);
-    });
+    })
   },
 };
+
+Method invoking/Calling a method
+
+Remember we use dot notation
 
 user.login();
 user.logout();
 user.logBlogs();
+
+
+NB: ARROW FUNCTION WORK DIFFERENTLY WITH THE THIS KEYWORD THATS WHY
+ WE USE REGULAR FUNCTIONS
+
+ JAVASCRIPT will not also set the value of the this keyword to be the object if we use an arrow function
+
 
 OR */
 
@@ -942,7 +1019,18 @@ user.login();
 user.logout();
 user.logBlogs();
 
-//OBJECTS IN ARRAYS
+/*OBJECTS IN ARRAYS (COMMON FORMAT IN JS, LEARN AND GRASP)
+
+We can store objects inside of arrays
+const blogs = [
+  {title: "Zahra Wangari", views: 1000},
+  {title: "Goosebumps", views: 200}
+]
+
+NB : A LOT OF THE TIME WHEN WE WORK WITH DATA THIS IS THE FORMAT
+WE WILL BE USING BECAUSE WHEN WE RETRIEVE DATA FROM A DATABASE ITS GOING TO BE
+IN FORM OF AN OBJECT FORMAT IN ARRAY
+*/
 
 let users = {
   name: "kevin",
@@ -996,6 +1084,35 @@ let users2 = {
 };
 
 users2.getDetails();
+
+// EXAMPLE 3
+
+const movies = [
+  {
+    title: "Inception",
+    director: "Christopher Nolan",
+    year: 2010,
+    rating: 8.8,
+  },
+  {
+    title: "Taking of Pelham 123",
+    director: "Denzel Washington",
+    year: 2009,
+    rating: 9,
+  },
+  {
+    title: "Diddy do it",
+    director: "Puff daddy",
+    year: 2024,
+    rating: 10,
+  },
+];
+
+console.log("I have watched the following Movies");
+movies.forEach((movie) => {
+  
+  console.log(movie.title, movie.director, movie.year);
+});
 
 // math object
 console.log(Math);
