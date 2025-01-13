@@ -940,7 +940,6 @@ We still use a key value pair
 
 Remember a regular fn cannot defined inside an object but a method is
 
-Inside our object we have defined some methods that look like regular fn but theyre not regular fns
 
 THIS KEYWORD
 
@@ -1030,6 +1029,9 @@ const blogs = [
 NB : A LOT OF THE TIME WHEN WE WORK WITH DATA THIS IS THE FORMAT
 WE WILL BE USING BECAUSE WHEN WE RETRIEVE DATA FROM A DATABASE ITS GOING TO BE
 IN FORM OF AN OBJECT FORMAT IN ARRAY
+
+It means you need to remember that:
+OBJECTS IN AN ARRAY ARE SIMPLY - AN ARRAY OF OBJECTS
 */
 
 let users = {
@@ -1087,32 +1089,45 @@ users2.getDetails();
 
 // EXAMPLE 3
 
-const movies = [
-  {
-    title: "Inception",
-    director: "Christopher Nolan",
-    year: 2010,
-    rating: 8.8,
+const database = {
+  founder: "Kevin",
+  date: 2025,
+  movies: [
+    {
+      title: "Inception",
+      director: "Christopher Nolan",
+      year: 2010,
+      rating: 8.8,
+    },
+    {
+      title: "Taking of Pelham 123",
+      director: "Denzel Washington",
+      year: 2009,
+      rating: 9,
+    },
+    {
+      title: "Diddy do it",
+      director: "Puff daddy",
+      year: 2024,
+      rating: 10,
+    },
+  ],
+  logMovies() {
+    console.log("Movies");
+    this.movies.forEach((movie) => {
+      console.log(movie.title, movie.director, movie.year);
+    });
   },
-  {
-    title: "Taking of Pelham 123",
-    director: "Denzel Washington",
-    year: 2009,
-    rating: 9,
-  },
-  {
-    title: "Diddy do it",
-    director: "Puff daddy",
-    year: 2024,
-    rating: 10,
-  },
-];
+};
 
-console.log("I have watched the following Movies");
-movies.forEach((movie) => {
-  
-  console.log(movie.title, movie.director, movie.year);
-});
+//REMEMBER METHODS ARE INVOKED USING DOT NOTATION
+database.logMovies();
+console.log(database.founder, database.movies);
+
+// console.log("I have watched the following Movies");
+// movies.forEach((movie) => {
+//   console.log(movie.title, movie.director, movie.year);
+// });
 
 // math object
 console.log(Math);
