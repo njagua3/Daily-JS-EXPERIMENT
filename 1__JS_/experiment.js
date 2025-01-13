@@ -852,6 +852,17 @@ people.forEach((person) => {
 console.log(myHtml);
 ul.innerHTML = myHtml;
 
+// EXAMPLE 2
+const divInHtml = document.querySelector(".content");
+const pips = ["mario", "kevin", "luigi", "zahra", "jane"];
+let myPeoples = "";
+pips.forEach((person) => {
+  return (myPeoples += `<li style="color:blue">My name is: ${person}</li>`);
+});
+
+divInHtml.innerHTML += myPeoples;
+console.log(myPeoples);
+
 /* 
 OBJECTS AT A GLANCE
 
@@ -905,7 +916,7 @@ let user = {
 };
 console.log(user);
 
-ACCESsING PROPERTIES FROM AN OBJECT
+ACCESSING PROPERTIES FROM AN OBJECT
 
 - WE USE DOT NOTATION
 
@@ -938,7 +949,7 @@ ADDING METHODS
 
 We still use a key value pair
 
-Remember a regular fn cannot defined inside an object but a method is
+Remember a regular fn cannot defined inside an object but a method can
 
 
 THIS KEYWORD
@@ -1124,66 +1135,101 @@ const database = {
 database.logMovies();
 console.log(database.founder, database.movies);
 
-// console.log("I have watched the following Movies");
-// movies.forEach((movie) => {
-//   console.log(movie.title, movie.director, movie.year);
-// });
+/* MATH OBJECT
+JAVASCRIPT HAS A BUNCH OF BUILT IN OBJECTS WHICH WE CAN USE
 
-// math object
-console.log(Math);
+ONE OF THEM IS
+
+       THE MATH OBJECT
+It has several properties and methods all premade
+
+Math object is accesed using the Math keyword. (M is in uppercase)
+
+
+*/
+console.log(Math); //props and methods of math object shown
 console.log(Math.PI);
 console.log(Math.E);
 
 //MATH METHODS
 
 const area = 7.2;
-console.log(Math.round(area));
+console.log(Math.round(area)); //rounds to nearest integer
 
 console.log(Math.floor(area));
 console.log(Math.ceil(area));
-console.log(Math.trunc(area));
+console.log(Math.trunc(area)); //takes away decimal places
 
-//USE CASE FOR THE MATH OBJECT
+/*COMMON USE CASE FOR THE MATH OBJECT
 
-//GENERATING  RANDOM NUMBERS
+       GENERATING  RANDOM NUMBERS
+we use the .random() method
+it generates random numbers between 0 - 1 (including decimals)
 
-let random = Math.random();
-console.log(random);
+If we wanted a random no between 0-50?       
+       */
 
-console.log(Math.round(random * 50));
+let randomNo = Math.random();
+console.log(randomNo);
 
-//PRIMITIVE AND REFERENCE DATA TYPES
-// PRIMITIVE TYPES - numbers,booleans,strings,null,undefined, symbols
+console.log(Math.round(randomNo * 50));
 
-//when you create eg a number and assign it to a variable
-//the value is stored in sth called a STACK
-//value stored in stack has a pointer - the variable name
-//A stack is just a stack of diff values in memory & can be accesed quickly
-// when you make a copy of a primitive data type
-// the copy is stored also in the stack
-// when you make a change to one value the other isnt changed
+/*
+PRIMITIVE AND REFERENCE DATA TYPES
 
+There are 2 types of data types in javascript
+
+PRIMITIVE TYPES - numbers,booleans,strings,null,undefined, symbols
+
+- when you create eg a number and assign it to a variable
+the value is stored in sth called a STACK
+
+value stored in stack has a pointer - the variable name
+
+A stack is just a stack of diff values in memory & can be accesed quickly
+
+when you make a copy of a primitive data type
+
+the copy is stored also in the stack
+
+when you make a change to one value the other isnt changed
+*/
 let num1 = 10;
 let num2 = num1;
 
 console.log(num1);
 console.log(num2);
 
+// NOW lets update the value of num1
+
 num1 = 20;
 
 console.log(num1);
 console.log(num2);
 
-// REFRENCE DATA TYPES
+/* REFERENCE DATA TYPES
 
-//All types of Objects
+All types of Objects
 
-// STORED IN A HEAP WHICH HAS MORE SPACE BUT  ABIT SLOWER
-// WHEN YOU MAKE A COPY OF EG AN ARRAY THERE ARE 2 POINTERS THAT POINT TO THE SAME VALUE
-// A COPY EG AN ARRAY IS STORED ONCE IN MEMORY AND 2 POINTERS POINT TO THE SAME VALUE
-//HENCE WHEN YOU UPDATE ONE OF THEM IT UPDATES BOTH
+STORED IN A HEAP WHICH HAS MORE SPACE BUT  ABIT SLOWER
+WHEN YOU MAKE A COPY OF EG AN ARRAY THERE ARE 2 POINTERS THAT POINT TO THE SAME VALUE
+A COPY EG AN ARRAY IS STORED ONCE IN MEMORY AND 2 POINTERS POINT TO THE SAME VALUE
+HENCE WHEN YOU UPDATE ONE OF THEM IT UPDATES BOTH  
 
-// STEP 1 - GRABBING ELEMENTS USING QUERY SELECTOR
+            EXAMPLE
+*/
+const user1 = {name:'zahra', age:2};
+const user2 = user1;
+
+console.log(user1, user2);
+
+// Now lets change the value of user1
+user1.name = 'Zahra Wangari'
+
+console.log(user1, user2);
+
+/* STEP 1 - GRABBING ELEMENTS USING QUERY SELECTOR */
+
 const paragraph = document.querySelector(".error");
 
 console.log(paragraph);
