@@ -76,7 +76,10 @@ EXAMPLE */
 const h1 = document.querySelector("body > h1");
 console.log(h1);
 
-/* WHAT IF WE WANT TO GRAB MULTIPLE ELEMENTS? */
+/* WHAT IF WE WANT TO GRAB MULTIPLE ELEMENTS?
+
+WE USE THE .QUERYSELECTORALL()
+*/
 
 const para = document.querySelectorAll("p");
 console.log(para);
