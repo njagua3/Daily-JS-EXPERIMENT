@@ -1,15 +1,22 @@
-/* href(hyper reference) = is an example of a HTML attribute
+/* 
+Apart from changing the innertext & the innerhtml we can also get 
+& update attributes
+
+
+href(hyper reference) = is an example of a HTML attribute
     class = is a class attribute
     id = is an id attribute
     src = is a source attribute
     alt = is an alternative text attribute
 
+    HOW TO CHANGE ATTRIBUTES:
+
  GET THE href attribute  
 
-1st - get are reference
+1st - get are reference to the element we are changing
 
  */
-const link = document.querySelector("a");
+const link = document.querySelector("a");//grabs 1st anchor tag
 
 console.log(link);
 
@@ -38,9 +45,9 @@ const message = document.querySelector("p");
 
 message.setAttribute("class", "success");
 
-// inspect in browser to see the change
+/* inspect in browser to see the change
 
-/* LET US SAY WE WANT TO ADD A STYLE ATTR TO OUR P TAG
+ LET US SAY WE WANT TO ADD A STYLE ATTR TO OUR P TAG
 And the attribute does not exist
  ITS VERY EASY
 */

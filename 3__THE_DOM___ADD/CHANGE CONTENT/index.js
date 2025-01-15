@@ -67,5 +67,5 @@ people.forEach((person) => {
 const courses = ["HTML", "CSS", "JavaScript", "Python", "Figma"];
 
 courses.forEach((course) => {
-  content.innerHTML += `<li>${course}</li>`;
+  content.innerHTML += `<li style = 'color: red'>${course}</li>`;
 });
