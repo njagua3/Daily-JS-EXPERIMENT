@@ -128,8 +128,8 @@ console.log(title);
 /*
 2 - getElementsByClassName
 */
-const error2 = document.getElementsByClassName("error");
-console.log(error2);
+const classError = document.getElementsByClassName("error");
+console.log(classError);
 
 /* The result is a HTMLcollection
 HTMLCollection(2) [p.error, div.error]
@@ -159,4 +159,8 @@ NB USE QUERYSELECTOR() & QUERYSELECTORALL()
 THEY RETURN A NODELIST WHICH WE CAN LOOP THROUGH
 
 The other methods return a HTML COLLECTION WHICH WE CANT LOOP THRU
+
+
+
+
 */
