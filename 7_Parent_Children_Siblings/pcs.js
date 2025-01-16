@@ -35,7 +35,7 @@ in a single collection
 
 */
 
-const article = document.querySelector("article");
+const article = document.querySelector("article"); //reference to parent
 
 console.log(article.children); // we get a HTML collection
 
@@ -60,4 +60,18 @@ Array.from(article.children).forEach((child) => {
 Lets find the parent element of the h2
 */
 const title = document.querySelector("h2");
-console.log(title.parentElement);
+console.log(title.parentElement); //gets parent element of the h2
+
+//example 2
+const h1 = document.querySelector("h1");
+console.log(h1.parentElement); //gets parent element of the h1
+
+/*CHAINING - So as to get the parent of another parent
+
+Eg lets get the parent of the article element 
+*/
+console.log(title.parentElement.parentElement); //gets parent of the article element)
+
+/* SIBLING RELATIONSHIP*/
+console.log(title.nextElementSibling);
+console.log(title.previousElementSibling);
