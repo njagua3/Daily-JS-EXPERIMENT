@@ -16,4 +16,9 @@ button.addEventListener("click", (e) => {
 e.target.classList.add("
 }
 
+Try and visualize even the basics like math function what it does, its use cases, forEACH method application, the this keyword etc
+Programming is more of understanding what youre doing and less of coding
+Make sure you do that tomorrow and also make it a habit
+
+FEAR A MAN WHO HAS PRACTICED A SINGLE KICK A THOUSANDS TIMES
 */
