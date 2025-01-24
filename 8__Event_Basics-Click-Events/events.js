@@ -18,10 +18,13 @@ an event listener actively listens for user events on a specific element
 
 3. Write a callback function which will fire when that event happens(when user clicks button)
 
+
+FIRST STEP
 */
 
 const button = document.querySelector("button");
 
+// SECOND STEP - Adding an event listener to button
 button.addEventListener("click", () => {
   console.log("button clicked");
 });
