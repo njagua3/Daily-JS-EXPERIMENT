@@ -32,6 +32,7 @@ button.addEventListener("click", () => {
   const newToDo = document.createElement("li"); // create a new li
   newToDo.textContent = "New To Do"; // add some text
   ul.append(newToDo); // add the new li to the ul
+  // or ul.prepend(newToDo); // add the new to do at the top
 });
 
 /* When we add the new li remember we havent attached event listeners 
