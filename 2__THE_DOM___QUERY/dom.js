@@ -1,4 +1,34 @@
-/* When working with DOM & we are adding,removing, or changing
+/* 
+WHAT IS THE DOM
+
+DOM stands for Document Object Model
+
+Its sth created by the browser when a HTML doc loads inside of it
+
+When a Html doc loads in the browser, the browser creates an object
+that models the HTML document
+
+This object is called the document object
+
+The document object contains many properties and methods that we
+can use to interact with html document
+
+Whenever we want to do sth eg remove an element from a browser, or add sth
+we do that via the document object
+
+Remember that the document object is created by the browser to model the html page
+
+The dom also describes how a doc looks in a visual way
+
+The DOM describes a html page as a hierarchical structure of nodes
+
+Each node can have child nodes and parent nodes
+
+2__THE_DOM___QUERY/Screenshot_1.png
+
+IMPORTANT:
+
+When working with DOM & we are adding,removing, or changing
 content there are steps to follow
 
 1st  step - decide which element we want to either add or remove content
@@ -9,7 +39,7 @@ is called
 
 QUERYING the DOM - using queryselector method
 
-You have to store the reference to the element in a variable */
+NB: You have to store the reference to the element in a variable */
 
 const paragraph = document.querySelector("p"); //grabs 1st p tag
 
@@ -46,7 +76,10 @@ EXAMPLE */
 const h1 = document.querySelector("body > h1");
 console.log(h1);
 
-/* WHAT IF WE WANT TO GRAB MULTIPLE ELEMENTS? */
+/* WHAT IF WE WANT TO GRAB MULTIPLE ELEMENTS?
+
+WE USE THE .QUERYSELECTORALL()
+*/
 
 const para = document.querySelectorAll("p");
 console.log(para);
@@ -95,8 +128,8 @@ console.log(title);
 /*
 2 - getElementsByClassName
 */
-const error2 = document.getElementsByClassName("error");
-console.log(error2);
+const classError = document.getElementsByClassName("error");
+console.log(classError);
 
 /* The result is a HTMLcollection
 HTMLCollection(2) [p.error, div.error]
@@ -126,4 +159,8 @@ NB USE QUERYSELECTOR() & QUERYSELECTORALL()
 THEY RETURN A NODELIST WHICH WE CAN LOOP THROUGH
 
 The other methods return a HTML COLLECTION WHICH WE CANT LOOP THRU
+
+
+
+
 */

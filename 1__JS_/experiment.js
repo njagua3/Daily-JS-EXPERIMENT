@@ -852,6 +852,17 @@ people.forEach((person) => {
 console.log(myHtml);
 ul.innerHTML = myHtml;
 
+// EXAMPLE 2
+const divInHtml = document.querySelector(".content");
+const pips = ["mario", "kevin", "luigi", "zahra", "jane"];
+let myPeoples = "";
+pips.forEach((person) => {
+  return (myPeoples += `<li style="color:blue">My name is: ${person}</li>`);
+});
+
+divInHtml.innerHTML += myPeoples;
+console.log(myPeoples);
+
 /* 
 OBJECTS AT A GLANCE
 
@@ -905,7 +916,7 @@ let user = {
 };
 console.log(user);
 
-ACCESsING PROPERTIES FROM AN OBJECT
+ACCESSING PROPERTIES FROM AN OBJECT
 
 - WE USE DOT NOTATION
 
@@ -938,9 +949,8 @@ ADDING METHODS
 
 We still use a key value pair
 
-Remember a regular fn cannot defined inside an object but a method is
+Remember a regular fn cannot defined inside an object but a method can
 
-Inside our object we have defined some methods that look like regular fn but theyre not regular fns
 
 THIS KEYWORD
 
@@ -1030,6 +1040,9 @@ const blogs = [
 NB : A LOT OF THE TIME WHEN WE WORK WITH DATA THIS IS THE FORMAT
 WE WILL BE USING BECAUSE WHEN WE RETRIEVE DATA FROM A DATABASE ITS GOING TO BE
 IN FORM OF AN OBJECT FORMAT IN ARRAY
+
+It means you need to remember that:
+OBJECTS IN AN ARRAY ARE SIMPLY - AN ARRAY OF OBJECTS
 */
 
 let users = {
@@ -1087,180 +1100,131 @@ users2.getDetails();
 
 // EXAMPLE 3
 
-const movies = [
-  {
-    title: "Inception",
-    director: "Christopher Nolan",
-    year: 2010,
-    rating: 8.8,
+const database = {
+  founder: "Kevin",
+  date: 2025,
+  movies: [
+    {
+      title: "Inception",
+      director: "Christopher Nolan",
+      year: 2010,
+      rating: 8.8,
+    },
+    {
+      title: "Taking of Pelham 123",
+      director: "Denzel Washington",
+      year: 2009,
+      rating: 9,
+    },
+    {
+      title: "Diddy do it",
+      director: "Puff daddy",
+      year: 2024,
+      rating: 10,
+    },
+  ],
+  logMovies() {
+    console.log("Movies");
+    this.movies.forEach((movie) => {
+      console.log(movie.title, movie.director, movie.year);
+    });
   },
-  {
-    title: "Taking of Pelham 123",
-    director: "Denzel Washington",
-    year: 2009,
-    rating: 9,
-  },
-  {
-    title: "Diddy do it",
-    director: "Puff daddy",
-    year: 2024,
-    rating: 10,
-  },
-];
+};
 
-console.log("I have watched the following Movies");
-movies.forEach((movie) => {
-  
-  console.log(movie.title, movie.director, movie.year);
-});
+//REMEMBER METHODS ARE INVOKED USING DOT NOTATION
+database.logMovies();
+console.log(database.founder, database.movies);
 
-// math object
-console.log(Math);
+/* MATH OBJECT
+JAVASCRIPT HAS A BUNCH OF BUILT IN OBJECTS WHICH WE CAN USE
+
+ONE OF THEM IS
+
+       THE MATH OBJECT
+It has several properties and methods all premade
+
+Math object is accesed using the Math keyword. (M is in uppercase)
+
+
+*/
+console.log(Math); //props and methods of math object shown
 console.log(Math.PI);
 console.log(Math.E);
 
 //MATH METHODS
 
 const area = 7.2;
-console.log(Math.round(area));
+console.log(Math.round(area)); //rounds to nearest integer
 
 console.log(Math.floor(area));
 console.log(Math.ceil(area));
-console.log(Math.trunc(area));
+console.log(Math.trunc(area)); //takes away decimal places
 
-//USE CASE FOR THE MATH OBJECT
+/*COMMON USE CASE FOR THE MATH OBJECT
 
-//GENERATING  RANDOM NUMBERS
+       GENERATING  RANDOM NUMBERS
+we use the .random() method
+it generates random numbers between 0 - 1 (including decimals)
 
-let random = Math.random();
-console.log(random);
+If we wanted a random no between 0-50?       
+       */
 
-console.log(Math.round(random * 50));
+let randomNo = Math.random();
+console.log(randomNo);
 
-//PRIMITIVE AND REFERENCE DATA TYPES
-// PRIMITIVE TYPES - numbers,booleans,strings,null,undefined, symbols
+console.log(Math.round(randomNo * 50));
 
-//when you create eg a number and assign it to a variable
-//the value is stored in sth called a STACK
-//value stored in stack has a pointer - the variable name
-//A stack is just a stack of diff values in memory & can be accesed quickly
-// when you make a copy of a primitive data type
-// the copy is stored also in the stack
-// when you make a change to one value the other isnt changed
+/*
+PRIMITIVE AND REFERENCE DATA TYPES
 
+There are 2 types of data types in javascript
+
+PRIMITIVE TYPES - numbers,booleans,strings,null,undefined, symbols
+
+- when you create eg a number and assign it to a variable
+the value is stored in sth called a STACK
+
+value stored in stack has a pointer - the variable name
+
+A stack is just a stack of diff values in memory & can be accesed quickly
+
+when you make a copy of a primitive data type
+
+the copy is stored also in the stack
+
+when you make a change to one value the other isnt changed
+*/
 let num1 = 10;
 let num2 = num1;
 
 console.log(num1);
 console.log(num2);
 
+// NOW lets update the value of num1
+
 num1 = 20;
 
 console.log(num1);
 console.log(num2);
 
-// REFRENCE DATA TYPES
+/* REFERENCE DATA TYPES
 
-//All types of Objects
+All types of Objects
 
-// STORED IN A HEAP WHICH HAS MORE SPACE BUT  ABIT SLOWER
-// WHEN YOU MAKE A COPY OF EG AN ARRAY THERE ARE 2 POINTERS THAT POINT TO THE SAME VALUE
-// A COPY EG AN ARRAY IS STORED ONCE IN MEMORY AND 2 POINTERS POINT TO THE SAME VALUE
-//HENCE WHEN YOU UPDATE ONE OF THEM IT UPDATES BOTH
+STORED IN A HEAP WHICH HAS MORE SPACE BUT  ABIT SLOWER
+WHEN YOU MAKE A COPY OF EG AN ARRAY THERE ARE 2 POINTERS THAT POINT TO THE SAME VALUE
+A COPY EG AN ARRAY IS STORED ONCE IN MEMORY AND 2 POINTERS POINT TO THE SAME VALUE
+HENCE WHEN YOU UPDATE ONE OF THEM IT UPDATES BOTH  
 
-// STEP 1 - GRABBING ELEMENTS USING QUERY SELECTOR
-const paragraph = document.querySelector(".error");
+            EXAMPLE
+*/
+const user1 = {name:'zahra', age:2};
+const user2 = user1;
 
-console.log(paragraph);
+console.log(user1, user2);
 
-const div2 = document.querySelector("div.error");
-console.log(div2);
+// Now lets change the value of user1
+user1.name = 'Zahra Wangari'
 
-const heading = document.querySelector("body > h1");
+console.log(user1, user2);
 
-console.log(heading);
-
-const para = document.querySelector("body > div:nth-child(3) > p:nth-child(2)");
-
-console.log(para);
-
-//GRABBING MULTIPLE ELEMENTS
-
-// WEUSE QUERYSELECTORALL
-
-const ps = document.querySelectorAll("p");
-// console.log(ps, typeof ps);
-// we get a NodeList which is an array like structure but has a lot of additional methods
-
-console.log(ps[1]);
-//JUST LIKE AN ARRAY WE CAN USE THE FOREACH METHOD AND LOOP THROUGH THE P'S NODELIST
-ps.forEach((paragraph) => {
-  console.log(paragraph);
-});
-
-// EXAMPLE 2
-
-const errors = document.querySelectorAll(".error");
-
-errors.forEach((error) => {
-  console.log(error);
-});
-
-// STEP 2 - ADDING AND CHANGING PAGE CONTENT
-//WE use the .innerText property to update
-
-const my1stParagraph = document.querySelector("p");
-
-my1stParagraph.innerText = "Hi Kevin,Welcome to your J.S lessons";
-
-//CHANGING TEXTS OF SEVERAL ITEMS AT ONCE
-
-const allParas = document.querySelectorAll("p");
-allParas.forEach((para) => {
-  console.log(para.innerText);
-  para.innerText += " new text";
-});
-
-const content = document.querySelector(".content");
-
-//console.log(content.innerHTML);
-
-//Updating it
-content.innerHTML += "<h2>THIS IS A H2</h2>";
-
-//EXAMPLE WITH AN ARRAY OF NAMES FROM A DB
-
-const myPeople = ["kevin", "jak", "zahra", "valentine"];
-
-myPeople.forEach((person) => {
-  content.innerHTML += `<p>${person}</p>`;
-});
-
-// NB += IS FOR APPENDING
-//     = IS FOR OVERWRITING THE CONTENT
-
-//GETTING AND SETTING ATTRIBUTES
-
-// WHAT ARE ATTRIBUTES?
-
-// I have added an anchor element in the html file for practice
-
-const link = document.querySelector("a");
-console.log(link.getAttribute("href"));
-
-//setting attributes
-// .setAttribute() = takes in 2 arguments
-// 1st arg - which attr are you changing, 2nd argument - what are you changing it to
-
-link.setAttribute("href", "https://kevin-nyingi-portfolio.netlify.app/");
-link.innerText = "KEVIN NYINGI PORTFOLIO";
-
-//EXAMPLE 2
-
-const mssg = document.querySelector("p");
-
-console.log(mssg.getAttribute("class"));
-
-//ADDING  ATTRIBUTES
-
-mssg.setAttribute("class", "success");

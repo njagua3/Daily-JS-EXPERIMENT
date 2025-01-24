@@ -1,12 +1,18 @@
-/* WE WANT TO CHANGE THE CONTENT OF THE FIRST P TAG 
+/* 
+STEP 2
+
+ADDING & CHANGING PAGE CONTENT
+
+WE WANT TO CHANGE THE CONTENT OF THE FIRST P TAG 
 1ST GET A REFERENCE FOR THE P TAG
 */
 
 const paragraph = document.querySelector("p");
+console.log(paragraph.innerText);
 paragraph.innerText = `We are the Njagua's`;
 
 /* .innerText - grabs the text inside the p element
-and changes it
+and changes it. Its a PROPERTY & NOT A METHOD
 
 This method overwrites the text inside the p element.
 
@@ -16,10 +22,10 @@ EXAMPLE
 paragraph.innerText += ` World!`
 */
 
-/* CHANGING TEXT OF SEVERAL ITEMS AT ONCE by cyclig THROUGH*/
+/* CHANGING TEXT OF SEVERAL ITEMS AT ONCE by cycling THROUGH*/
 
 const paras = document.querySelectorAll("p");
-
+console.log(paras); // we get a nodelist which we can cycle through
 paras.forEach((paragraph) => {
   //console.log(paragraph.innerText);
   paragraph.innerText += ` new text`;
@@ -55,4 +61,11 @@ const people = ["Kevin", "Zahra", "Valentine", "John", "James"];
 */
 people.forEach((person) => {
   content.innerHTML += `<p>${person}</p>`;
+});
+
+// EXAMPLE 2
+const courses = ["HTML", "CSS", "JavaScript", "Python", "Figma"];
+
+courses.forEach((course) => {
+  content.innerHTML += `<li style = 'color: red'>${course}</li>`;
 });
