@@ -79,5 +79,5 @@ pTags.forEach((pTag) => {
 
 WE USE THE TOGGLE METHOD
 
-
+We need to cover this chapter again. start the dom again
 */
