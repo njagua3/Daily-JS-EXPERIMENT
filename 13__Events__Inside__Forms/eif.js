@@ -23,4 +23,20 @@ Other kind of events that go hand in hand with web forms are;
 
 - Keyboard events - we can detect if a user presses or realeses a key on their keyboard
        - we can also check if they have their alt or shift key pressed
+
+In the html file we have a simple form with a submit button
+
+get a reference to the sign up form
+
+add an event listener to the form
+When we are listening for a submit event we attach event
+listener to form itself and not to the submit button
 */
+
+const form = document.querySelector(".signup-form");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  // get the values from the form inputs
+  console.log(form.username.value);
+});
