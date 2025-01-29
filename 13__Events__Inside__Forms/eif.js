@@ -40,3 +40,12 @@ form.addEventListener("submit", (e) => {
   // get the values from the form inputs
   console.log(form.username.value);
 });
+
+
+/*
+
+                REGULAR EXPRESSIONS/ REGEX
+They are not unique to Js. Used also in other languages eg python
+
+
+*/
