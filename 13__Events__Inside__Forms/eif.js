@@ -41,11 +41,25 @@ form.addEventListener("submit", (e) => {
   console.log(form.username.value);
 });
 
-
 /*
 
                 REGULAR EXPRESSIONS/ REGEX
 They are not unique to Js. Used also in other languages eg python
 
+Regex allow us to type out character patterns to rep certain values
 
+We start of by deciding what kind of pattern we want to match
+eg how long it should be, type of xcters it should contain
+
+Then write a regex to match that pattern
+
+Regular expressions start with forward slash and end with the same
+
+
+
+
+
+TESTING REGEX
 */
+
+const username = "Kevin";
