@@ -33,13 +33,13 @@ When we are listening for a submit event we attach event
 listener to form itself and not to the submit button
 */
 
-const form = document.querySelector(".signup-form");
+// const form = document.querySelector(".signup-form");
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  // get the values from the form inputs
-  console.log(form.username.value);
-});
+// form.addEventListener("submit", (e) => {
+//   e.preventDefault();
+//   // get the values from the form inputs
+//   console.log(form.username.value);
+// });
 
 /*
 
@@ -67,7 +67,7 @@ Below we have username and i want to create a regular expression
 to make sure that the username is atleast 6 xcters long
 */
 
-const username = "kevinn";
+const userName = "kevinn";
 
 /*Create a regex and store it in a constant*/
 
@@ -80,7 +80,7 @@ Now we test the regex with the username
 
 If the regex matches the username, the test will pass */
 
-let result = pattern.test(username); // returns a boolean
+let result = pattern.test(userName); // returns a boolean
 
 console.log(result); // true
 
@@ -90,12 +90,33 @@ if (result) {
   console.log("Username is invalid :(");
 }
 
-
-
 /*BASIC FORM VALIDATION
 
 We have our form and we are listening for a submit event on the form
 and preventing the default action
 
+Now next i want to check if the user has tapped into thefield
+and validate it using some simple validations and some regex
+
+I want the username to be between 6-12 xcters in length
+& only contain lowercase or uppercase letters. No numbers or symbol
+
+FIRST: - Get a handle on the username value
 
 */
+const form = document.querySelector(".signup-form");
+const feedback = document.querySelector(".feedback"); //ref to feedback div
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  // get the values from the form inputs
+  const username = form.username.value;
+  const usernamePattern = /^[a-zA-Z]{6,12}$/;
+
+  if (usernamePattern.test(username)) {
+    feedback.textContent = "username is valid";
+  } else {
+    feedback.textContent =
+      "username must contain letters only & be between 6 & 12 characters long";
+  }
+});
