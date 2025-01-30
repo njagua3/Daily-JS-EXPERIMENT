@@ -106,12 +106,12 @@ FIRST: - Get a handle on the username value
 */
 const form = document.querySelector(".signup-form");
 const feedback = document.querySelector(".feedback"); //ref to feedback div
-
+const usernamePattern = /^[a-zA-Z]{6,12}$/;
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   // get the values from the form inputs
   const username = form.username.value;
-  const usernamePattern = /^[a-zA-Z]{6,12}$/;
+  //const usernamePattern = /^[a-zA-Z]{6,12}$/;
 
   if (usernamePattern.test(username)) {
     feedback.textContent = "username is valid";
@@ -121,6 +121,17 @@ form.addEventListener("submit", (e) => {
   }
 });
 
+/*KEYBOARD EVENTS
 
+LIVE FEEDBACK
 
-/*KEYBOARD EVENTS*/
+Get the username input field
+*/
+form.username.addEventListener("keyup", (e) => {
+  //console.log(e.target.value, form.username.value);
+  if (usernamePattern.test(e.target.value)) {
+    form.username.setAttribute("class", "success");
+  } else {
+    form.username.setAttribute("class", "error");
+  }
+});
