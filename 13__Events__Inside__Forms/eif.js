@@ -120,3 +120,7 @@ form.addEventListener("submit", (e) => {
       "username must contain letters only & be between 6 & 12 characters long";
   }
 });
+
+
+
+/*KEYBOARD EVENTS*/
