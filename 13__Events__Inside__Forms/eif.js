@@ -60,6 +60,42 @@ Regular expressions start with forward slash and end with the same
 
 
 TESTING REGEX
+
+How to use regex in a javascript file
+
+Below we have username and i want to create a regular expression
+to make sure that the username is atleast 6 xcters long
 */
 
-const username = "Kevin";
+const username = "kevinn";
+
+/*Create a regex and store it in a constant*/
+
+const pattern = /^[a-z]{6,}$/;
+
+/*
+In JS we can use a method called test on a pattern
+
+Now we test the regex with the username
+
+If the regex matches the username, the test will pass */
+
+let result = pattern.test(username); // returns a boolean
+
+console.log(result); // true
+
+if (result) {
+  console.log("Username is valid :)");
+} else {
+  console.log("Username is invalid :(");
+}
+
+
+
+/*BASIC FORM VALIDATION
+
+We have our form and we are listening for a submit event on the form
+and preventing the default action
+
+
+*/
