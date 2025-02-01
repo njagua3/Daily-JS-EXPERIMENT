@@ -106,12 +106,12 @@ FIRST: - Get a handle on the username value
 */
 const form = document.querySelector(".signup-form");
 const feedback = document.querySelector(".feedback"); //ref to feedback div
-const usernamePattern = /^[a-zA-Z]{6,12}$/;
+const usernamePattern = /^[a-zA-Z]{6,12}$/; //characters must be between a- or A-Z snd must be 6-12 characters
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   // get the values from the form inputs
   const username = form.username.value;
-  //const usernamePattern = /^[a-zA-Z]{6,12}$/;
+  //const usernamePattern = /^[a-zA-Z]{6,12}$/; - change to a global variable
 
   if (usernamePattern.test(username)) {
     feedback.textContent = "username is valid";
