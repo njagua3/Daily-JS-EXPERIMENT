@@ -1,0 +1,1 @@
+This course covers fullstack js development
