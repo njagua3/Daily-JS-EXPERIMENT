@@ -64,3 +64,42 @@ const newProducts = products.map((product) => {
   }
 });
 console.log(newProducts);
+
+/* 
+Reduce Method
+
+It doesnt necessarily return a new array
+
+Instead it can return any single value which could be an 
+array or it could be a number or a string
+the callback fn has 2 parameters; accumulator & current
+
+we want to know how many numbers are over 50
+*/
+
+const score = [10, 20, 60, 40, 70, 90, 30];
+
+const over50 = score.reduce((acc, curr) => {
+  if (curr > 50) {
+    acc++;
+  }
+  return acc;
+}, 0);
+console.log(over50);
+
+// Example 2
+
+const userScores = [
+  { player: "mario", score: 20 },
+  { player: "mamoush", score: 40 },
+  { player: "mario", score: 30 },
+  { player: "beyonce", score: 10 },
+];
+
+const marioTotal = userScores.reduce((acc, curr) => {
+  if (curr.player === "mario") {
+    acc += curr.score;
+  }
+  return acc;
+}, 0);
+console.log(marioTotal);
