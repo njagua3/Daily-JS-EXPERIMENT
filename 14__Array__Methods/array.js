@@ -1,7 +1,19 @@
 /*
 Filter Method - non destructive
-            useful for retrieving data in a db
-*/
+            useful for retrieving data in a db and filtering data
+            based on a certain condition.
+            Eg filtering scores that are not atleast 20 or are 20+
+
+Filter method iterates an array and performs a check on each item in
+array inside a callback function.
+- Callback function fires for each item in the array and perform some
+kind of checks and if check passes it will be kept inside the filtered array
+
+- Since its non destructive you need to store the new array inside a new
+variable. The new variable will contain the filtered items
+
+EXAMPLE
+            */
 
 const scores = [10, 30, 15, 25, 50, 40, 5];
 
@@ -19,13 +31,13 @@ const users = [
   { name: "wangari", premium: true },
 ];
 
-// const filteredUsers = users.filter((user) => {
-//   //condition
-//   if (user.premium) {
-//     return user;
-//   }
-// });
-// console.log(filteredUsers);
+const filteredUsers = users.filter((user) => {
+  //condition
+  if (user.premium) {
+    return user;
+  }
+});
+console.log(filteredUsers);
 
 //or
 const premiumUsers = users.filter((user) => {
@@ -56,14 +68,14 @@ const products = [
   { name: "red shells", price: 50 },
 ];
 
-const newProducts = products.map((product) => {
+const newProductPrices = products.map((product) => {
   if (product.price > 30) {
     return { name: product.name, price: product.price / 2 };
   } else {
     return product;
   }
 });
-console.log(newProducts);
+console.log(newProductPrices);
 
 /* 
 Reduce Method
@@ -103,3 +115,30 @@ const marioTotal = userScores.reduce((acc, curr) => {
   return acc;
 }, 0);
 console.log(marioTotal);
+
+/* 
+Find Method - 
+   returns the value of the 1st element inside an array that passes a certain
+   test in a callback function. 
+*/
+
+const theScore = [10, 5, 0, 40, 30, 10, 90, 70];
+
+const firstScore = theScore.find((score) => {
+  if (score > 50) {
+    return score;
+    // or return score > 50
+  }
+});
+console.log(firstScore);
+
+/*
+SORT METHOD - IN JS when we have an array of data we might want to sort
+the data or rearrange it in a particular way
+eg sort an array of names in alphabetical order or
+
+sorting an array of objects depending on the value eg scores
+
+STRINGS EXAMPLES
+*/
+
