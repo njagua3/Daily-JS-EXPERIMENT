@@ -139,6 +139,66 @@ eg sort an array of names in alphabetical order or
 
 sorting an array of objects depending on the value eg scores
 
+- This method is destructive
+
 STRINGS EXAMPLES
+-Sort method aut sorts strings
 */
 
+const names = ["Marvin", "Kevin", "Zahra", "Jane", "Punisher", "Zorro"];
+names.sort();
+names.reverse();
+console.log(names);
+
+/*
+NUMBERS EXAMPLES
+- Sort method sorts numbers
+*/
+
+const age = [20, 10, 2, 13, 56, 12, 76, 45];
+
+// age.sort((a, b) => {
+//   if (a > b) {
+//     return -1;
+//   } else if (b > a) {
+//     return 1;
+//   } else {
+//     return 0;
+//   }
+// });
+// console.log(age);
+
+//or
+age.sort((a, b) => {
+  return b - a;
+});
+age.reverse();
+console.log(age);
+
+// EXAMPLE 2
+const players = [
+  { player: "mario", score: 20 },
+  { player: "mamoush", score: 40 },
+  { player: "mario", score: 30 },
+  { player: "beyonce", score: 10 },
+  { player: "sasha", score: 70 },
+];
+
+// we want to sort the array above depending on the score
+
+players.sort((a, b) => {
+  if (a.score > b.score) {
+    return -1;
+  } else if (b.score > a.score) {
+    return 1;
+  } else {
+    return 0;
+  }
+});
+console.log(players);
+
+//or
+players.sort((a, b) => {
+  return b.score - a.score;
+});
+console.log(players);
