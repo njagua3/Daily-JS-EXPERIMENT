@@ -202,3 +202,37 @@ players.sort((a, b) => {
   return b.score - a.score;
 });
 console.log(players);
+
+/* CHAINING ARRAY METHODS */
+
+const produce = [
+  { name: "goldstar", price: 20 },
+  { name: "mushroom", price: 40 },
+  { name: "green shells", price: 30 },
+  { name: "banana skin", price: 10 },
+  { name: "red shells", price: 50 },
+];
+
+//Filtered method - if price is over 20
+
+const filteredProduce = produce.filter((produce) => {
+  return produce.price > 20;
+});
+
+// Map method
+
+const promos = filteredProduce.map((produce) => {
+  return `the ${produce.name} is ${produce.price / 2} pounds`;
+});
+
+console.log(promos);
+
+// OR Method Chaining
+
+const promotions = produce
+  .filter((produce) => produce.price > 20)
+  .map((produce) => {
+    return `the ${produce.name} is ${produce.price / 2} pounds`;
+  });
+
+console.log(promotions);
