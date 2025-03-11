@@ -52,7 +52,7 @@ console.log(premiumUsers);
 
 /*
 Map Method - non destructive
-            useful for creating new arrays
+            useful for creating new arrays based off current array
    it takes an array and maps it into a completely new array         
 cycles through an array and creates a new array based on that array
    */
@@ -75,22 +75,29 @@ const products = [
 
 const theNewProducts = products.map((product) => {
   if (product.price > 30) {
-    return { name: product.name, price: product.price / 2 };//we are returning a new object
+    return { name: product.name, price: product.price / 2 }; //we are returning a new object
   } else {
     return product; //return the original object
   }
 });
 console.log(theNewProducts);
 
+/*return { name: product.name, price: product.price / 2 }
+WE ARE CREATING A NEW OBJECT BECAUSE WE DO NOT WANT TO
+EDIT OR ALTER THE ORIGINAL VALUE
+
+*/
 
 /* 
-Reduce Method
+REDUCE METHOD
 
-It doesnt necessarily return a new array
+It doesn't necessarily return a new array
 
 Instead it can return any single value which could be an 
 array or it could be a number or a string
 the callback fn has 2 parameters; accumulator & current
+
+Think of the acc as a running total
 
 we want to know how many numbers are over 50
 */
@@ -102,10 +109,13 @@ const over50 = score.reduce((acc, curr) => {
     acc++;
   }
   return acc;
-}, 0);
+}, 0); // 0 is the initial value of the acc
 console.log(over50);
 
-// Example 2
+/*Example 2
+
+Add the total score for mario
+*/
 
 const userScores = [
   { player: "mario", score: 20 },
@@ -113,6 +123,14 @@ const userScores = [
   { player: "mario", score: 30 },
   { player: "beyonce", score: 10 },
 ];
+
+const marioScore = userScores.reduce((acc, curr) => {
+  if (curr.player === "mario") {
+    acc += curr.score;
+  }
+  return acc;
+}, 0);
+console.log(marioScore);
 
 const marioTotal = userScores.reduce((acc, curr) => {
   if (curr.player === "mario") {
@@ -123,7 +141,7 @@ const marioTotal = userScores.reduce((acc, curr) => {
 console.log(marioTotal);
 
 /* 
-Find Method - 
+FIND METHOD - 
    returns the value of the 1st element inside an array that passes a certain
    test in a callback function. 
 */
