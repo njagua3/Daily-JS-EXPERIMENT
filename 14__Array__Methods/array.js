@@ -142,19 +142,19 @@ console.log(marioTotal);
 
 /* 
 FIND METHOD - 
-   returns the value of the 1st element inside an array that passes a certain
+returns the value of the 1st element inside an array that passes a certain
    test in a callback function. 
 */
 
 const theScore = [10, 5, 0, 40, 30, 10, 90, 70];
 
-const firstScore = theScore.find((score) => {
+const firstHighScore = theScore.find((score) => {
   if (score > 50) {
     return score;
     // or return score > 50
   }
 });
-console.log(firstScore);
+console.log(firstHighScore);
 
 /*
 SORT METHOD - IN JS when we have an array of data we might want to sort
@@ -170,13 +170,26 @@ STRINGS EXAMPLES
 */
 
 const names = ["Marvin", "Kevin", "Zahra", "Jane", "Punisher", "Zorro"];
-names.sort();
-names.reverse();
+names.sort(); // sorts in alphabetical order
+names.reverse();// sorts in reverse alphabet order
 console.log(names);
 
 /*
 NUMBERS EXAMPLES
 - Sort method sorts numbers
+
+For more complex sorting we have to provide a function as an
+argument to the sort method
+
+This function is called the compare function because its used to
+compare values in our array inorder to sort them
+
+The sort fn is like a callback function but it takes 2 parameters
+We'll call them a and b
+
+A & B rep 2 consecutive elements inside the array and in the fn
+we are going to compare a & b and decide which of those should come 1st
+
 */
 
 const age = [20, 10, 2, 13, 56, 12, 76, 45];
