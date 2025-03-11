@@ -73,14 +73,15 @@ const products = [
   { name: "red shells", price: 50 },
 ];
 
-const newProductPrices = products.map((product) => {
+const theNewProducts = products.map((product) => {
   if (product.price > 30) {
-    return { name: product.name, price: product.price / 2 };
+    return { name: product.name, price: product.price / 2 };//we are returning a new object
   } else {
-    return product;
+    return product; //return the original object
   }
 });
-console.log(newProductPrices);
+console.log(theNewProducts);
+
 
 /* 
 Reduce Method
