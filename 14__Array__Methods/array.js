@@ -31,6 +31,11 @@ const users = [
   { name: "wangari", premium: true },
 ];
 
+const newUsers = users.filter((user) => {
+  return user.premium;
+});
+console.log(newUsers);
+
 const filteredUsers = users.filter((user) => {
   //condition
   if (user.premium) {
