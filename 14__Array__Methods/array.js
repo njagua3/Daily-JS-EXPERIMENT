@@ -209,7 +209,7 @@ const age = [20, 10, 2, 13, 56, 12, 76, 45];
 age.sort((a, b) => {
   return b - a;
 });
-age.reverse();
+age.reverse();// OR RETURN A - B
 console.log(age);
 
 // EXAMPLE 2
