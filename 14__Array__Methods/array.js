@@ -166,7 +166,7 @@ returns the value of the 1st element inside an array that passes a certain
    test in a callback function. 
 */
 
-const theScore = [10, 5, 0, 40, 30, 10, 90, 70];
+const theScore = [10, 5, 60, 0, 40, 30, 10, 90, 70];
 
 const firstHighScore = theScore.find((score) => {
   if (score > 50) {
