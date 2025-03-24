@@ -140,9 +140,8 @@ We wanted to add up the total score for mario
 */
 const marioTotal = userScores.reduce((acc, curr) => {
   if (curr.player === "mario") {
-    acc += curr.score;// we're taking what the acc is currently is if its eg mario
+    acc += curr.score; // we're taking what the acc is currently is if its eg mario
     //and adding the persons score to the acc. Then in the end we return the accumulator(Don't forget)
-    
   }
   return acc;
 }, 0);
@@ -271,16 +270,28 @@ const produce = [
   { name: "red shells", price: 50 },
 ];
 
-//Filtered method - if price is over 20
+/*
+Above we have an array of objects
 
-const filteredProduce = produce.filter((produce) => {
-  return produce.price > 20;
+Imagine we want to do 2 things with this array
+
+1st we want to filter out any product that isn't over 20 in price
+
+Then we wanted to take that filtered array and map it into a new array
+
+
+Filtered method - if price is over 20
+
+*/
+const filtered = produce.filter((product) => {
+  return product.price > 20;
 });
 
+console.log(filtered);
 // Map method
 
-const promos = filteredProduce.map((produce) => {
-  return `the ${produce.name} is ${produce.price / 2} pounds`;
+const promos = filtered.map((product) => {
+  return `the ${product.name} is ${product.price / 2} pounds`;
 });
 
 console.log(promos);
@@ -288,9 +299,9 @@ console.log(promos);
 // OR Method Chaining
 
 const promotions = produce
-  .filter((produce) => produce.price > 20)
-  .map((produce) => {
-    return `the ${produce.name} is ${produce.price / 2} pounds`;
+  .filter((product) => product.price > 20)
+  .map((product) => {
+    return `the ${product.name} is ${product.price / 2} pounds`;
   });
 
 console.log(promotions);
