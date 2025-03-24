@@ -1,5 +1,19 @@
-const addForm = document.querySelector(".add");
-const list = document.querySelector(".todos");
+const addForm = document.querySelector(".add");//reference to the form
+const list = document.querySelector(".todos");//reference to the ul
+
+
+//Adding a new todo
+addForm.addEventListener("submit", (e) => {
+  e.preventDefault();// prevents page from refreshing
+  const todo = addForm.add.value.trim();//get what user types
+  //checking the todo isnt empty
+  if (todo.length) {
+    generateTemplate(todo);
+    addForm.reset();//resets input field inside form
+  }
+});
+
+// fn that generates a html template and add to browser/todo list
 const generateTemplate = (todo) => {
   const html = `
     <li
@@ -11,14 +25,6 @@ const generateTemplate = (todo) => {
     `;
   list.innerHTML += html;
 };
-addForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const todo = addForm.add.value.trim();
-  if (todo.length) {
-    generateTemplate(todo);
-    addForm.reset();
-  }
-});
 
 //delete todos
 list.addEventListener("click", (e) => {
