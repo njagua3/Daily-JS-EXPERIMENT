@@ -208,6 +208,7 @@ The sort fn is like a callback function but it takes 2 parameters
 We'll call them a and b
 
 A & B rep 2 consecutive elements inside the array and in the fn
+and in the function we are gonna compare a & b to decide which one comes 1st
 we are going to compare a & b and decide which of those should come 1st
 
 */
