@@ -102,11 +102,12 @@ REDUCE METHOD
 It doesn't necessarily return a new array
 
 Instead it can return any single value which could be an 
-array or it could be a number or a string
+array or it could be a number or a string based on this original array
 the callback fn has 2 parameters; accumulator & current
 
 Think of the acc as a running total
 
+curr represents each item as we iterate the array
 we want to know how many numbers are over 50
 */
 
@@ -130,24 +131,35 @@ const userScores = [
   { player: "mamoush", score: 40 },
   { player: "mario", score: 30 },
   { player: "beyonce", score: 10 },
+  { player: "mamoush", score: 60 },
+  { player: "mamoush", score: 33 },
+  { player: "mamoush", score: 10 },
 ];
-
-const marioScore = userScores.reduce((acc, curr) => {
-  if (curr.player === "mario") {
-    acc += curr.score;
-  }
-  return acc;
-}, 0);
-console.log(marioScore);
-
+/*
+We wanted to add up the total score for mario
+*/
 const marioTotal = userScores.reduce((acc, curr) => {
   if (curr.player === "mario") {
-    acc += curr.score;
+    acc += curr.score;// we're taking what the acc is currently is if its eg mario
+    //and adding the persons score to the acc. Then in the end we return the accumulator(Don't forget)
+    
   }
   return acc;
 }, 0);
 console.log(marioTotal);
 
+/*Example 2
+
+Add the total score for mamoush
+*/
+
+const mamoushTotal = userScores.reduce((acc, curr) => {
+  if (curr.player === "mamoush") {
+    acc += curr.score;
+  }
+  return acc;
+}, 0);
+console.log(mamoushTotal);
 /* 
 FIND METHOD - 
 returns the value of the 1st element inside an array that passes a certain
