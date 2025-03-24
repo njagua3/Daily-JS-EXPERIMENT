@@ -2,7 +2,7 @@ const addForm = document.querySelector(".add");//reference to the form
 const list = document.querySelector(".todos");//reference to the ul
 
 
-//Adding a new todo
+// STEP 1: Adding a new todo
 addForm.addEventListener("submit", (e) => {
   e.preventDefault();// prevents page from refreshing
   const todo = addForm.add.value.trim();//get what user types
@@ -26,10 +26,24 @@ const generateTemplate = (todo) => {
   list.innerHTML += html;
 };
 
-//delete todos
+//STEP 2: Delete todos - Event delegation
+/*Event delegation helps because
+- less work for JS to do & more efficient in terms of perfomance
+
+- we're only attaching 1 event listener to the parent element(ul)
+
+  - instead of attaching an event listener to each individual li tag
+
+  - Attach an event listener to the parent element (in this case the ul)
+ 
+ - whenever we add a new todo using the form we do not need to worry 
+ about attaching event listeners to the new li tags
+  */
 list.addEventListener("click", (e) => {
+  // Check if the target is an i (trash icon) and if it has the delete class
   if (e.target.classList.contains("delete")) {
     e.target.parentElement.remove();
   }
 });
+
 //keyup event
