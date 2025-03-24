@@ -1,15 +1,15 @@
-const addForm = document.querySelector(".add");//reference to the form
-const list = document.querySelector(".todos");//reference to the ul
-
+const addForm = document.querySelector(".add"); //reference to the form
+const list = document.querySelector(".todos"); //reference to the ul
+const search = document.querySelector(".search input"); //reference to the input field
 
 // STEP 1: Adding a new todo
 addForm.addEventListener("submit", (e) => {
-  e.preventDefault();// prevents page from refreshing
-  const todo = addForm.add.value.trim();//get what user types
+  e.preventDefault(); // prevents page from refreshing
+  const todo = addForm.add.value.trim(); //get what user types
   //checking the todo isnt empty
   if (todo.length) {
     generateTemplate(todo);
-    addForm.reset();//resets input field inside form
+    addForm.reset(); //resets input field inside form
   }
 });
 
@@ -46,4 +46,30 @@ list.addEventListener("click", (e) => {
   }
 });
 
-//keyup event
+/*Search Form
+Search & Filter
+
+- Add a keyup event listener to the search input field
+*/
+search.addEventListener("keyup", () => {
+  const term = search.value.trim().toLowerCase();
+
+  filterToDos(term);
+});
+
+// Search & Filter
+
+const filterToDos = (term) => {
+  Array.from(list.children)
+    .filter((todo) => !todo.textContent.toLowerCase().includes(term))
+    .forEach((todo) => {
+      todo.classList.add("filtered");
+    });
+
+  Array.from(list.children)
+    .filter((todo) => todo.textContent.toLowerCase().includes(term))
+    .forEach((todo) => {
+      todo.classList.remove("filtered");
+    });
+};
+
