@@ -31,10 +31,11 @@ const users = [
   { name: "wangari", premium: true },
 ];
 
-const newUsers = users.filter((user) => {
-  return user.premium;
-});
-console.log(newUsers);
+/*This is just an array of objects. Each object has a name property and a premium property
+Premium property is either true or false & it basically describes whether a user is  premium
+user
+Lets use the filter method to get all premium users
+*/
 
 const filteredUsers = users.filter((user) => {
   //condition
@@ -46,7 +47,7 @@ console.log(filteredUsers);
 
 //or
 const premiumUsers = users.filter((user) => {
-  return user.premium;
+  return (user.premium);
 });
 console.log(premiumUsers);
 

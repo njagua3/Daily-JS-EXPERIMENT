@@ -26,3 +26,4 @@ list.addEventListener("click", (e) => {
     e.target.parentElement.remove();
   }
 });
+//keyup event
