@@ -47,7 +47,7 @@ console.log(filteredUsers);
 
 //or
 const premiumUsers = users.filter((user) => {
-  return (user.premium);
+  return user.premium;
 });
 console.log(premiumUsers);
 
@@ -74,14 +74,21 @@ const products = [
   { name: "red shells", price: 50 },
 ];
 
-const theNewProducts = products.map((product) => {
+/*
+we want to create a new array with all the products in it
+Products whose price is over 30 should be slashed by half
+
+
+ */
+const newProdackts = products.map((product) => {
+  //condition
   if (product.price > 30) {
     return { name: product.name, price: product.price / 2 }; //we are returning a new object
   } else {
     return product; //return the original object
   }
 });
-console.log(theNewProducts);
+console.log(newProdackts);
 
 /*return { name: product.name, price: product.price / 2 }
 WE ARE CREATING A NEW OBJECT BECAUSE WE DO NOT WANT TO
@@ -172,7 +179,7 @@ STRINGS EXAMPLES
 
 const names = ["Marvin", "Kevin", "Zahra", "Jane", "Punisher", "Zorro"];
 names.sort(); // sorts in alphabetical order
-names.reverse();// sorts in reverse alphabet order
+names.reverse(); // sorts in reverse alphabet order
 console.log(names);
 
 /*
@@ -210,7 +217,7 @@ const age = [20, 10, 2, 13, 56, 12, 76, 45];
 age.sort((a, b) => {
   return b - a;
 });
-age.reverse();// OR RETURN A - B
+age.reverse(); // OR RETURN A - B
 console.log(age);
 
 // EXAMPLE 2
